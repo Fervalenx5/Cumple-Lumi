@@ -28,37 +28,51 @@ countdown();
 const canvas = document.getElementById("confetti");
 const ctx = canvas.getContext("2d");
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+function resize() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+resize();
+window.addEventListener("resize", resize);
 
-const confetti = Array.from({ length: 80 }, () => ({
-  x: Math.random() * canvas.width,
-  y: Math.random() * canvas.height - canvas.height,
-  r: Math.random() * 4 + 2,
-  d: Math.random() * 2 + 1
-}));
+const confetti = Array.from({ length: 70 }, () => createPiece());
 
-function drawConfetti() {
+function createPiece() {
+  return {
+    x: Math.random() * canvas.width,
+    y: Math.random() * canvas.height,
+    r: Math.random() * 2.5 + 1,
+    d: Math.random() * 0.4 + 0.2,
+    o: Math.random() * 0.4 + 0.2
+  };
+}
+
+function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.fillStyle = "rgba(233, 150, 180, 0.6)";
 
   confetti.forEach(p => {
     ctx.beginPath();
+    ctx.fillStyle = `rgba(255,182,193,${p.o})`; // rosa delicado
     ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
     ctx.fill();
+
     p.y += p.d;
+
+    if (p.y > canvas.height) {
+      p.y = -10;
+      p.x = Math.random() * canvas.width;
+    }
   });
+
+  requestAnimationFrame(draw);
 }
 
-let frames = 0;
-function animateConfetti() {
-  if (frames < 180) {
-    drawConfetti();
-    frames++;
-    requestAnimationFrame(animateConfetti);
-  } else {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-  }
+draw();
+
+
+window.addEventListener("load", animate);
+function confirmar() {
+  if (navigator.vibrate) navigator.vibrate(50);
+  window.open("https://wa.me/54XXXXXXXXX");
 }
 
-animateConfetti();
