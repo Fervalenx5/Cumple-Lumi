@@ -1,3 +1,4 @@
+/* Reset básico */
 * {
   margin: 0;
   padding: 0;
@@ -5,214 +6,89 @@
 }
 
 body {
-  background: #f4f4f4;
   min-height: 100vh;
+  font-family: "Inter", system-ui, sans-serif;
+  background: url("fondo.png") center / cover no-repeat;
   display: flex;
   justify-content: center;
-  align-items: center;
-  font-family: Arial, sans-serif;
 }
 
-.card {
-  position: relative;
-  width: 100%;
-  max-width: 420px;
-  aspect-ratio: 9 / 16;
-  background: url("fondo.png") no-repeat center;
-  background-size: cover;
-}
-
-/* Cuenta regresiva */
-#contador {
-  position: absolute;
-  top: 58%;
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(255, 228, 236, 0.9);
-  color: #e87aa4;
-  padding: 10px 18px;
-  border-radius: 25px;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-/* Botones */
-.btn {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 75%;
-  padding: 14px;
-  border-radius: 30px;
-  text-align: center;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 15px;
-  background: #f7a1bb;
-  color: white;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
-/* WhatsApp */
-.btn.whatsapp {
-  bottom: 18%;
-}
-
-/* Maps */
-.btn.maps {
-  bottom: 10%;
-  background: #f4b6c8;
-}
-/* Countdown moderno */
-.countdown {
-  position: absolute;
-  top: 56%;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 12px;
-  background: rgba(255, 240, 245, 0.85);
-  padding: 12px 18px;
-  border-radius: 25px;
-  backdrop-filter: blur(6px);
-}
-
-.time {
-  text-align: center;
-  min-width: 48px;
-}
-
-.time span {
-  display: block;
-  font-size: 22px;
-  font-weight: 600;
-  color: #e87aa4;
-  transition: transform 0.3s ease;
-}
-
-.time small {
-  font-size: 10px;
-  color: #b36b85;
-  letter-spacing: 0.5px;
-}
-/* Botones premium */
-.btn-pro {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 78%;
-  padding: 14px 18px;
-  border-radius: 28px;
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 500;
-  color: #e26b95;
-  background: rgba(255, 240, 245, 0.85);
-  backdrop-filter: blur(8px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  box-shadow:
-    0 8px 20px rgba(0,0,0,0.12),
-    inset 0 0 0 1px rgba(255, 182, 193, 0.6);
-  transition: all 0.25s ease;
-}
-
-/* Posiciones */
-.btn-pro.whatsapp {
-  bottom: 18%;
-}
-
-.btn-pro.maps {
-  bottom: 10%;
-}
-
-/* Ícono */
-.btn-pro .icon {
-  font-size: 16px;
-}
-
-/* Interacción */
-.btn-pro:hover {
-  transform: translateX(-50%) translateY(-2px);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
-}
-
-.btn-pro:active {
-  transform: translateX(-50%) scale(0.96);
-}
-.btn-pro {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 76%;
-  padding: 14px 20px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-size: 15px;
-  font-weight: 400;
-  letter-spacing: 0.2px;
-  color: #d97a9c;
-  background: rgba(255, 245, 248, 0.85);
-  backdrop-filter: blur(10px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  box-shadow:
-    0 10px 30px rgba(0,0,0,0.10),
-    inset 0 0 0 1px rgba(255, 200, 215, 0.5);
-  transition: all 0.35s ease;
-}
-
-.btn-pro.whatsapp {
-  bottom: 18%;
-}
-
-.btn-pro.maps {
-  bottom: 10%;
-}
-
-.btn-pro .icon {
-  width: 18px;
-  height: 18px;
-  color: #e38cab;
-}
-
-/* Hover / tap */
-.btn-pro:hover {
-  transform: translateX(-50%) translateY(-2px);
-  box-shadow: 0 14px 36px rgba(0,0,0,0.14);
-}
-
-.btn-pro:active {
-  transform: translateX(-50%) scale(0.96);
-}
+/* Confetti arriba de todo */
 #confetti {
   position: fixed;
   inset: 0;
-  width: 100vw;
-  height: 100vh;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 10;
 }
 
-.number {
-  animation: fadeUp 1.2s ease-out;
+/* Contenedor */
+.invite {
+  width: 100%;
+  max-width: 420px;
+  padding: 32px 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 28px;
 }
 
-@keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Countdown */
+.countdown {
+  display: flex;
+  gap: 12px;
+  background: rgba(255, 240, 246, 0.85);
+  backdrop-filter: blur(6px);
+  padding: 14px 18px;
+  border-radius: 18px;
 }
-button:active {
-  transform: scale(0.97);
+
+.countdown div {
+  text-align: center;
 }
+
+.countdown span {
+  font-size: 20px;
+  font-weight: 600;
+  color: #e46c9a;
+}
+
+.countdown small {
+  font-size: 11px;
+  color: #9c6b7a;
+}
+
+/* Botones */
+.actions {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.btn {
+  text-decoration: none;
+  text-align: center;
+  padding: 14px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 500;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn.primary {
+  background: #f6c1d5;
+  color: #7a2f4c;
+}
+
+.btn.secondary {
+  background: rgba(255,255,255,0.8);
+  color: #7a2f4c;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
 
